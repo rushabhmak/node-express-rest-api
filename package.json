@@ -1,0 +1,26 @@
+{
+  "name": "restapi",
+  "version": "1.0.0",
+  "description": "Express mysql api",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "rushabh.makwana",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "express-myconnection": "^1.0.4",
+    "express-validator": "^4.3.0",
+    "formidable": "^1.1.1",
+    "mongodb": "^3.0.0-rc0",
+    "morgan": "^1.9.0",
+    "mysql": "^2.15.0",
+    "nodemon": "^1.14.3",
+    "path": "^0.12.7",
+    "serve-favicon": "^2.4.5"
+  }
+}
