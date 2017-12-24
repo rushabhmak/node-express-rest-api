@@ -18,28 +18,46 @@ router.get('/:id?',function(req,res,next){
         Country.getAllCountries(function(err,rows){
             if(err)
             {
-                res.json(err);
+                var response = {
+                    success : true,
+                    error: err
+                };
+                res.json(response);
             }
             else
             {
-                res.json(rows);
+                var response = {
+                    success : true,
+                    countries: rows
+                };
+                res.json(response);
             }
         });
     }
 });
 
 router.post('/',function(req,res,next){
-    Country.addCountry(req.body,function(err,count){
-        //console.log(req.body);
-        if(err)
-        {
-            res.json(err);
+        console.log(req.body);
+        req.checkBody("name", "Please enter country name.").notEmpty();
+        var errors = req.validationErrors();
+        if (errors) {
+            res.status(400).json(errors);
+            return;
+        } else {
+            console.log("post method 111");
+             // normal processing here
+            Country.addCountry(req.body,function(err,count){
+             //console.log(req.body);
+                if(err)
+                {
+                    res.json(err);
+                }
+                else
+                {
+                    res.json(req.body);//or return count for 1 & 0
+                }
+            }); 
         }
-        else
-        {
-            res.json(req.body);//or return count for 1 & 0
-        }
-    });
 });
 
 router.delete('/:id',function(req,res,next){

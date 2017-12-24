@@ -1,7 +1,7 @@
 var db=require('../connection');
 var Country={
   getAllCountries:function(callback){
-    return db.query("select * from counries",callback);
+    return db.query("select * from countries",callback);
   },
   getCountryById:function(id,callback){
     return db.query("select * from countries where id=?",[id],callback);
